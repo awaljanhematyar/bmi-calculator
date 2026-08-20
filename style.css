@@ -1,0 +1,174 @@
+/* Reset box-sizing so padding/border don't mess up element widths */
+* {
+  box-sizing: border-box;
+}
+
+/* Center the whole calculator card in the middle of the screen */
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "IBM Plex Sans", sans-serif;
+  /* Dark navy fading into bright electric blue */
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1a4a 45%, #0f62fe 100%);
+  padding: 20px;
+}
+
+/* The white card box that contains everything */
+.card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 380px;
+  padding: 32px;
+  border-radius: 16px;
+  /* Soft, spread-out shadow so the card "floats" above the background */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45);
+}
+
+/* Small uppercase label above the main heading ("Health Tool") */
+.eyebrow {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em; /* adds slight spacing between letters */
+  text-transform: uppercase;
+  color: #0f62fe;
+}
+
+/* Main title styling */
+h1 {
+  margin: 4px 0 4px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #161616;
+}
+
+/* Small gray subtitle under the title */
+.subtitle {
+  margin: 0 0 24px;
+  font-size: 14px;
+  color: #6f6f6f;
+}
+
+/* Styling for <label> tags above each input */
+.label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #393939;
+  margin-bottom: 6px;
+}
+
+/* Styling shared by all text/number inputs */
+.input {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 16px;
+  font-family: inherit;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 8px;
+  background: #f4f4f4;
+  color: #161616;
+  margin-bottom: 18px;
+  /* Smoothly animates border/background color changes */
+  transition:
+    border-color 150ms ease,
+    background 150ms ease;
+}
+
+/* Styling when the user clicks into an input (focus state) */
+.input:focus {
+  outline: none; /* removes default blue browser outline */
+  border-color: #0f62fe;
+  background: #ffffff;
+}
+
+/* The main "Compute BMI" button */
+.btn {
+  width: 100%;
+  background-color: #0f62fe;
+  color: #ffffff;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer; /* shows a hand cursor on hover */
+  transition:
+    background-color 150ms ease,
+    transform 150ms ease;
+}
+
+/* Button gets darker when hovered with a mouse */
+.btn:hover {
+  background-color: #0043ce;
+}
+
+/* Button shrinks slightly when clicked, feels "pressable" */
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* Container for the results section, separated by a top border */
+.result-box {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* Each row inside the results (label on left, value on right) */
+.result-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+/* Text label like "Your BMI" or "Category" */
+.result-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #393939;
+}
+
+/* Special styling just for the BMI number output box */
+.result-input {
+  width: 90px;
+  margin: 0;
+  text-align: center;
+  font-weight: 600;
+  background: #edf5ff;
+  border-color: #d0e2ff;
+  color: #0043ce;
+}
+
+/* Default badge style (before any category is calculated) */
+.badge {
+  padding: 6px 14px;
+  border-radius: 999px; /* very high number = fully rounded pill shape */
+  font-size: 13px;
+  font-weight: 600;
+  background: #e0e0e0;
+  color: #393939;
+}
+
+/* Each of these gets ADDED to "badge" by JavaScript, based on the result */
+/* JS does: element.className = "badge " + category  */
+.badge.under-weight {
+  background: #d0e2ff; /* light blue */
+  color: #0043ce;
+}
+.badge.normal-weight {
+  background: #defbe6; /* light green = healthy result */
+  color: #0e6027;
+}
+.badge.overweight {
+  background: #fff2cc; /* light yellow = caution */
+  color: #8a5b00;
+}
+.badge.obesity {
+  background: #ffd7d9; /* light red = warning */
+  color: #a2191f;
+}

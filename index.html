@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Makes the page resize nicely on phones/tablets -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI Calculator</title>
+
+    <!-- Connects to Google Fonts and loads "IBM Plex Sans" -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet" />
+
+    <!-- Our custom styling file -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- The main white card that holds the whole calculator -->
+    <main class="card">
+      <!-- Small blue label above the title -->
+      <p class="eyebrow">Health Tool</p>
+      <h1>BMI Calculator</h1>
+      <p class="subtitle">Check your Body Mass Index in seconds</p>
+
+      <!-- Height input -->
+      <label class="label" for="height">Height (cm)</label>
+      <input
+        class="input"
+        type="number"
+        id="height"
+        placeholder="e.g. 170" />
+
+      <!-- Weight input -->
+      <label class="label" for="weight">Weight (kg)</label>
+      <input
+        class="input"
+        type="number"
+        id="weight"
+        placeholder="e.g. 65" />
+
+      <!-- Button that triggers the BMI calculation (see script.js) -->
+      <button class="btn" id="btn">Compute BMI</button>
+
+      <!-- Result section: shows the BMI number + category badge -->
+      <div class="result-box">
+        <div class="result-row">
+          <span class="result-label">Your BMI</span>
+          <!-- disabled = user can't type here, it's read-only output -->
+          <input disabled type="text" class="input result-input" id="bmi-result" placeholder="—" />
+        </div>
+        <div class="result-row">
+          <span class="result-label">Category</span>
+          <!-- This text + color changes dynamically via JavaScript -->
+          <span id="weight-condition" class="badge">—</span>
+        </div>
+      </div>
+    </main>
+
+    <!-- Our JavaScript logic file, loaded last so HTML exists first -->
+    <script src="script.js"></script>
+  </body>
+</html>
