@@ -4,6 +4,8 @@ Educational JavaScript BMI calculator with positive-number validation, result fe
 
 Part of my JavaScript practice work. Explore my complete projects on [GitHub](https://github.com/awaljanhematyar) or my [developer portfolio](https://hematyar-professional-portfolio.vercel.app/).
 
+[Live demo](https://awaljanhematyar.github.io/bmi-calculator/)
+
 ## Features
 
 - Enter height in centimeters and weight in kilograms.
